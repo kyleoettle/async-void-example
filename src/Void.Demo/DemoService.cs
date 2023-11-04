@@ -17,7 +17,7 @@
         public async void PerformVoidAsync()
         {
             await Task.Delay(1000);
-            throw new NotImplementedException(nameof(PerformTaskAsync));
+            throw new NotImplementedException(nameof(PerformVoidAsync));
         }
     }
 }
