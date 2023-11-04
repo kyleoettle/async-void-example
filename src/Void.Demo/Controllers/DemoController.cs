@@ -17,15 +17,22 @@ namespace Void.Demo.Controllers
             this.demoService = demoService;
         }
 
+        [HttpGet(Name = "GetTask")]
+        public async Task<IEnumerable<string>> GetTask()
+        {
+            demoService.PerformTaskAsync();
+            return demoValues;
+        }
+
         [HttpGet(Name = "GetTaskAsync")]
-        public async Task<IEnumerable<string>> GetTaskAsync()
+        public async Task<IEnumerable<string>> GetAsyncTask()
         {
             await demoService.PerformTaskAsync();
             return demoValues;
         }
 
         [HttpGet(Name = "GetVoidAsync")]
-        public async Task<IEnumerable<string>> GetVoidAsync()
+        public async Task<IEnumerable<string>> GetAsyncVoid()
         {
             demoService.PerformVoidAsync();
             return demoValues;

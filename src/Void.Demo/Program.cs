@@ -26,4 +26,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
+TaskScheduler.UnobservedTaskException += (sender, e) =>
+{
+    Console.WriteLine($"*** UnhandledException in TaskScheduler! - {e.Exception}");
+};
+
+AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+{
+    Console.WriteLine($"*** UnhandledException in AppDomain! - {e.ExceptionObject}");
+};
+
+
 app.Run();
